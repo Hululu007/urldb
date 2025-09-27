@@ -291,6 +291,7 @@ func main() {
 		api.POST("/tasks/transfer", middleware.AuthMiddleware(), middleware.AdminMiddleware(), taskHandler.CreateBatchTransferTask)
 		api.POST("/tasks/expansion", middleware.AuthMiddleware(), middleware.AdminMiddleware(), taskHandler.CreateExpansionTask)
 		api.GET("/tasks/expansion/accounts", middleware.AuthMiddleware(), middleware.AdminMiddleware(), taskHandler.GetExpansionAccounts)
+		api.GET("/tasks/expansion/accounts/:accountId/output", middleware.AuthMiddleware(), middleware.AdminMiddleware(), taskHandler.GetExpansionOutput)
 		api.GET("/tasks", middleware.AuthMiddleware(), middleware.AdminMiddleware(), taskHandler.GetTasks)
 		api.GET("/tasks/:id", middleware.AuthMiddleware(), middleware.AdminMiddleware(), taskHandler.GetTaskStatus)
 		api.POST("/tasks/:id/start", middleware.AuthMiddleware(), middleware.AdminMiddleware(), taskHandler.StartTask)
